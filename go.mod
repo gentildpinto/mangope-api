@@ -1,7 +1,7 @@
 module github.com/gentildpinto/mangope-api
 
 // +heroku goVersion go1.17
-// +heroku install -tags 'postgres' ./vendor/github.com/golang-migrate/migrate/v4/cmd/migrate .
+// +heroku install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest .
 
 go 1.17
 
