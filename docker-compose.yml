@@ -1,14 +1,16 @@
 version: '3.8'
 services:
   postgres_database:
+    image: postgres:latest
     environment:
       - POSTGRES_USER=${DATABASE_USER}  
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}
       - DATABASE_HOST=${DATABASE_HOST}
-    build: ./database
     ports:
       - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
   app:
     container_name: test-app
@@ -21,3 +23,6 @@ services:
       - "4000:4000"
     depends_on:
       - postgres_database
+
+volumes:
+  db-data:
