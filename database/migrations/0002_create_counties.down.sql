@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `counties`;
+DROP TABLE IF EXISTS counties;
