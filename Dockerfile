@@ -2,7 +2,7 @@
 FROM golang:alpine as builder
 
 # Add Maintainer info
-LABEL maintainer="Fakorede Boluwatife"
+LABEL maintainer="Gentil Pinto"
 
 # Install git.
 # Git is required for fetching the dependencies.
