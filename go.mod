@@ -8,7 +8,7 @@ go 1.17
 require github.com/golang-migrate/migrate/v4 v4.15.1
 
 require (
-	cloud.google.com/go v0.88.0 // indirect
+	cloud.google.com/go v0.93.3 // indirect
 	cloud.google.com/go/spanner v1.24.0 // indirect
 	cloud.google.com/go/storage v1.10.0 // indirect
 	github.com/Azure/azure-pipeline-go v0.2.3 // indirect
@@ -48,8 +48,7 @@ require (
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/google/go-github/v35 v35.2.0 // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
-	github.com/google/uuid v1.3.0 // indirect
-	github.com/googleapis/gax-go/v2 v2.0.5 // indirect
+	github.com/googleapis/gax-go/v2 v2.1.0 // indirect
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.0 // indirect
@@ -63,7 +62,6 @@ require (
 	github.com/jackc/pgtype v1.6.2 // indirect
 	github.com/jackc/pgx/v4 v4.10.1 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
-	github.com/jstemmer/go-junit-report v0.9.1 // indirect
 	github.com/k0kubun/pp v2.3.0+incompatible // indirect
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
@@ -74,7 +72,7 @@ require (
 	github.com/mattn/go-ieproxy v0.0.1 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/mattn/go-sqlite3 v1.14.6 // indirect
-	github.com/mitchellh/mapstructure v1.1.2 // indirect
+	github.com/mitchellh/mapstructure v1.4.2 // indirect
 	github.com/mutecomm/go-sqlcipher/v4 v4.4.0 // indirect
 	github.com/nakagami/firebirdsql v0.0.0-20190310045651-3c02a58cfed8 // indirect
 	github.com/neo4j/neo4j-go-driver v1.8.1-0.20200803113522-b626aa943eba // indirect
@@ -85,6 +83,7 @@ require (
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/snowflakedb/gosnowflake v1.6.3 // indirect
+	github.com/spf13/viper v1.9.0
 	github.com/xanzy/go-gitlab v0.15.0 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.0.2 // indirect
@@ -93,18 +92,17 @@ require (
 	gitlab.com/nyarla/go-crypt v0.0.0-20160106005555-d9a5dc2b789b // indirect
 	go.mongodb.org/mongo-driver v1.7.0 // indirect
 	go.opencensus.io v0.23.0 // indirect
-	go.uber.org/atomic v1.6.0 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
-	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
 	golang.org/x/mod v0.4.2 // indirect
 	golang.org/x/net v0.0.0-20211013171255-e13a2654a71e // indirect
-	golang.org/x/oauth2 v0.0.0-20210628180205-a41e5a781914 // indirect
+	golang.org/x/oauth2 v0.0.0-20210819190943-2bc19b11175f // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20211013075003-97ac67df715c // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.5 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
-	google.golang.org/api v0.51.0 // indirect
+	google.golang.org/api v0.56.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20211013025323-ce878158c4d4 // indirect
 	google.golang.org/grpc v1.41.0 // indirect
@@ -129,4 +127,27 @@ require (
 	modernc.org/strutil v1.1.0 // indirect
 	modernc.org/token v1.0.0 // indirect
 	modernc.org/zappy v1.0.0 // indirect
+)
+
+require (
+	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/google/uuid v1.3.0
+	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/magiconair/properties v1.8.5 // indirect
+	github.com/pelletier/go-toml v1.9.4 // indirect
+	github.com/spf13/afero v1.6.0 // indirect
+	github.com/spf13/cast v1.4.1 // indirect
+	github.com/spf13/jwalterweatherman v1.1.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/subosito/gotenv v1.2.0 // indirect
+	go.uber.org/zap v1.19.1
+	gopkg.in/ini.v1 v1.63.2 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gorm.io/gorm v1.22.0
+)
+
+require (
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.2 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
 )
