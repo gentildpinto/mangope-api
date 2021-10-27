@@ -11,7 +11,6 @@ import (
 
 var (
 	version string
-	appPort = "80"
 	envVars = []string{
 		"DATABASE_USERNAME", "DATABASE_PASSWORD", "ENVIRONMENT", "DATABASE_HOST", "DATABASE_PORT", "DATABASE_NAME",
 	}
@@ -56,13 +55,9 @@ func Initialize(appVersion string) (config *Configuration, err error) {
 		return
 	}
 
-	if os.Getenv("APP_PORT") != "" {
-		appPort = os.Getenv("APP_PORT")
-	}
-
 	config = &Configuration{
 		Server: &Server{
-			Port:         appPort,
+			Port:         os.Getenv("PORT"),
 			Debug:        os.Getenv("ENVIRONMENT") != "production" || os.Getenv("DEBUG") == "true",
 			ReadTimeout:  60,
 			WriteTimeout: 60,
