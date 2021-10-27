@@ -13,7 +13,7 @@ import (
 
 func New(user, password, host, port, databaseName string) (*gorm.DB, error) {
 	postgresConfig := postgres.Config{
-		DSN:                  "host=" + host + " user=" + user + " password=" + password + " dbname=" + databaseName + " port=" + port + " sslmode=disable TimeZone=Africa/Luanda",
+		DSN:                  "host=" + host + " user=" + user + " password=" + password + " dbname=" + databaseName + " port=" + port + " sslmode=allow TimeZone=Africa/Luanda",
 		PreferSimpleProtocol: true, // disables implict prepared statement usage
 	}
 
