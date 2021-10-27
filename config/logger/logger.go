@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
 
-	"github.com/gentildpinto/mangope-api/app/helpers"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -20,7 +20,11 @@ var log *Logger
 func Initialize(version string) (err error) {
 	config := zap.NewProductionConfig()
 
-	if helpers.ViperEnvVariable("ENVIRONMENT") != "production" || helpers.ViperEnvVariable("DEBUG") == "true" {
+	// if helpers.ViperEnvVariable("ENVIRONMENT") != "production" || helpers.ViperEnvVariable("DEBUG") == "true" {
+	// 	config = zap.NewDevelopmentConfig()
+	// }
+
+	if os.Getenv("ENVIRONMENT") != "production" || os.Getenv("DEBUG") == "true" {
 		config = zap.NewDevelopmentConfig()
 	}
 

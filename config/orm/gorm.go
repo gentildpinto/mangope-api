@@ -1,10 +1,10 @@
 package orm
 
 import (
+	"os"
 	"strconv"
 	"time"
 
-	"github.com/gentildpinto/mangope-api/app/helpers"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -29,7 +29,7 @@ func New(user, password, host, port, databaseName string) (*gorm.DB, error) {
 	}
 
 	maxDBConnections := 500
-	if connections, err := strconv.Atoi(helpers.ViperEnvVariable("MAX_DB_CONNECTIONS")); err == nil {
+	if connections, err := strconv.Atoi(os.Getenv("MAX_DB_CONNECTIONS")); err == nil {
 		maxDBConnections = connections
 	}
 

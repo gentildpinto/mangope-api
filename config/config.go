@@ -2,8 +2,8 @@ package config
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/gentildpinto/mangope-api/app/helpers"
 	"github.com/gentildpinto/mangope-api/config/logger"
 	"github.com/gentildpinto/mangope-api/config/orm"
 	"gorm.io/gorm"
@@ -55,24 +55,24 @@ func Initialize(appVersion string) (config *Configuration, err error) {
 		return
 	}
 
-	if helpers.ViperEnvVariable("APP_PORT") != "" {
-		appPort = helpers.ViperEnvVariable("APP_PORT")
+	if os.Getenv("APP_PORT") != "" {
+		appPort = os.Getenv("APP_PORT")
 	}
 
 	config = &Configuration{
 		Server: &Server{
 			Port:         appPort,
-			Debug:        helpers.ViperEnvVariable("ENVIRONMENT") != "production" || helpers.ViperEnvVariable("DEBUG") == "true",
+			Debug:        os.Getenv("ENVIRONMENT") != "production" || os.Getenv("DEBUG") == "true",
 			ReadTimeout:  60,
 			WriteTimeout: 60,
 		},
 		Database: &Database{
-			Host:         helpers.ViperEnvVariable("DATABASE_HOST"),
-			Port:         helpers.ViperEnvVariable("DATABASE_PORT"),
-			User:         helpers.ViperEnvVariable("DATABASE_USERNAME"),
-			Password:     helpers.ViperEnvVariable("DATABASE_PASSWORD"),
-			DatabaseName: helpers.ViperEnvVariable("DATABASE_NAME"),
-			LogQueries:   helpers.ViperEnvVariable("ENVIRONMENT") != "production" || helpers.ViperEnvVariable("DEBUG") == "true",
+			Host:         os.Getenv("DATABASE_HOST"),
+			Port:         os.Getenv("DATABASE_PORT"),
+			User:         os.Getenv("DATABASE_USERNAME"),
+			Password:     os.Getenv("DATABASE_PASSWORD"),
+			DatabaseName: os.Getenv("DATABASE_NAME"),
+			LogQueries:   os.Getenv("ENVIRONMENT") != "production" || os.Getenv("DEBUG") == "true",
 		},
 	}
 
@@ -87,7 +87,7 @@ func Initialize(appVersion string) (config *Configuration, err error) {
 
 func validateEnvironment() error {
 	for _, envVar := range envVars {
-		if helpers.ViperEnvVariable(envVar) == "" {
+		if os.Getenv(envVar) == "" {
 			return logger.Log(fmt.Errorf("missing environment variable: %s", envVar))
 		}
 	}
