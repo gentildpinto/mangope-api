@@ -38,6 +38,7 @@ type (
 		Password     string
 		DatabaseName string
 		LogQueries   bool
+		SSLMode      string
 		Db           *gorm.DB
 	}
 )
@@ -73,10 +74,11 @@ func Initialize(appVersion string) (config *Configuration, err error) {
 			Password:     os.Getenv("DATABASE_PASSWORD"),
 			DatabaseName: os.Getenv("DATABASE_NAME"),
 			LogQueries:   os.Getenv("ENVIRONMENT") != "production" || os.Getenv("DEBUG") == "true",
+			SSLMode:      os.Getenv("SSL_MODE"),
 		},
 	}
 
-	config.Database.Db, err = orm.New(config.Database.User, config.Database.Password, config.Database.Host, config.Database.Port, config.Database.DatabaseName)
+	config.Database.Db, err = orm.New(config.Database.User, config.Database.Password, config.Database.Host, config.Database.Port, config.Database.DatabaseName, config.Database.SSLMode)
 
 	if err = logger.Log(err); err != nil {
 		return

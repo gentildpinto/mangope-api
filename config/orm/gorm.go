@@ -11,9 +11,9 @@ import (
 	"gorm.io/gorm/logger"
 )
 
-func New(user, password, host, port, databaseName string) (*gorm.DB, error) {
+func New(user, password, host, port, databaseName, sslMode string) (*gorm.DB, error) {
 	postgresConfig := postgres.Config{
-		DSN:                  "host=" + host + " user=" + user + " password=" + password + " dbname=" + databaseName + " port=" + port + " sslmode=allow TimeZone=Africa/Luanda",
+		DSN:                  "host=" + host + " user=" + user + " password=" + password + " dbname=" + databaseName + " port=" + port + " sslmode=" + sslMode + " TimeZone=Africa/Luanda",
 		PreferSimpleProtocol: true, // disables implict prepared statement usage
 	}
 
