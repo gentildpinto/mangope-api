@@ -53,24 +53,24 @@ require (
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
-	github.com/jackc/pgconn v1.8.0 // indirect
+	github.com/jackc/pgconn v1.10.0 // indirect
 	github.com/jackc/pgerrcode v0.0.0-20201024163028-a0d42d470451 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
-	github.com/jackc/pgproto3/v2 v2.0.7 // indirect
+	github.com/jackc/pgproto3/v2 v2.1.1 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b // indirect
-	github.com/jackc/pgtype v1.6.2 // indirect
-	github.com/jackc/pgx/v4 v4.10.1 // indirect
+	github.com/jackc/pgtype v1.8.1 // indirect
+	github.com/jackc/pgx/v4 v4.13.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/k0kubun/pp v2.3.0+incompatible // indirect
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/ktrysmt/go-bitbucket v0.6.4 // indirect
-	github.com/lib/pq v1.10.0 // indirect
-	github.com/mattn/go-colorable v0.1.6 // indirect
+	github.com/lib/pq v1.10.2 // indirect
+	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-ieproxy v0.0.1 // indirect
-	github.com/mattn/go-isatty v0.0.12 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-sqlite3 v1.14.6 // indirect
 	github.com/mitchellh/mapstructure v1.4.2 // indirect
 	github.com/mutecomm/go-sqlcipher/v4 v4.4.0 // indirect
@@ -133,6 +133,8 @@ require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/jinzhu/gorm v1.9.16
+	github.com/labstack/echo/v4 v4.6.1
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
 	github.com/spf13/afero v1.6.0 // indirect
@@ -143,11 +145,17 @@ require (
 	go.uber.org/zap v1.19.1
 	gopkg.in/ini.v1 v1.63.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gorm.io/driver/postgres v1.2.0
 	gorm.io/gorm v1.22.0
 )
 
 require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.2 // indirect
+	github.com/labstack/gommon v0.3.0 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasttemplate v1.2.1 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
+	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324 // indirect
 )

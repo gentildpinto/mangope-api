@@ -9,6 +9,6 @@ func Initialize(database *gorm.DB) (err error) {
 	return
 }
 
-func GetDB() *gorm.DB {
+func GetDBConnection() *gorm.DB {
 	return db
 }
