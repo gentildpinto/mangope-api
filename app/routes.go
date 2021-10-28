@@ -6,9 +6,11 @@ import (
 )
 
 var (
-	welcome = controllers.Welcome
+	welcome_controller  = controllers.Welcome
+	province_controller = controllers.Province
 )
 
 func initRoutes(e *echo.Echo) {
-	e.GET("/", welcome.Index())
+	e.GET("/", welcome_controller.Index())
+	e.GET("/provinces/all", province_controller.Index())
 }

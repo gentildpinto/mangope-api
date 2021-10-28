@@ -1,14 +1,14 @@
 package app
 
 import (
+	"github.com/gentildpinto/mangope-api/app/models/province"
 	"github.com/gentildpinto/mangope-api/config"
-	"github.com/gentildpinto/mangope-api/config/database"
 	"github.com/gentildpinto/mangope-api/config/logger"
 	"github.com/gentildpinto/mangope-api/config/server"
 )
 
 func Start(config *config.Configuration) (err error) {
-	if err = logger.Log(database.Initialize(config.Database.Db)); err != nil {
+	if err = logger.Log(province.Initialize(config.Database.Db)); err != nil {
 		return
 	}
 
