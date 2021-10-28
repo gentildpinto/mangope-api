@@ -4,7 +4,7 @@ services:
     image: postgres:latest
     container_name: mangope-database
     environment:
-      - POSTGRES_USER=${DATABASE_USERNAME}  
+      - POSTGRES_USER=${DATABASE_USERNAME}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}
       - DATABASE_HOST=${DATABASE_HOST}
