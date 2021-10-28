@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/gentildpinto/mangope-api/app/models/county"
 	"github.com/gentildpinto/mangope-api/app/models/province"
 	"github.com/gentildpinto/mangope-api/config"
 	"github.com/gentildpinto/mangope-api/config/logger"
@@ -9,6 +10,10 @@ import (
 
 func Start(config *config.Configuration) (err error) {
 	if err = logger.Log(province.Initialize(config.Database.Db)); err != nil {
+		return
+	}
+
+	if err = logger.Log(county.Initialize(config.Database.Db)); err != nil {
 		return
 	}
 

@@ -4,19 +4,21 @@ import (
 	"errors"
 	"time"
 
+	"github.com/gentildpinto/mangope-api/app/models/county"
 	"github.com/gentildpinto/mangope-api/config/logger"
 	"gorm.io/gorm"
 )
 
 type Province struct {
-	ID             uint      `gorm:"primaryKey"`
-	Name           string    `gorm:"type:varchar(50);not null"`
-	Foundation     string    `gorm:"type:varchar(50)"`
-	Capital        string    `gorm:"type:varchar(50)"`
-	Papulation     int       `gorm:"type:int"`
-	Area           float64   `gorm:"type:float"`
-	PhonePrefix    string    `gorm:"type:varchar(4)"`
-	GovernmentSite string    `gorm:"type:varchar(100)"`
+	ID             uint    `gorm:"primaryKey"`
+	Name           string  `gorm:"type:varchar(50);not null"`
+	Foundation     string  `gorm:"type:varchar(50)"`
+	Capital        string  `gorm:"type:varchar(50)"`
+	Papulation     int     `gorm:"type:int"`
+	Area           float64 `gorm:"type:float"`
+	PhonePrefix    string  `gorm:"type:varchar(4)"`
+	GovernmentSite string  `gorm:"type:varchar(100)"`
+	Counties       []county.County
 	CreatedAt      time.Time `json:"-"`
 	UpdatedAt      time.Time `json:"-"`
 }
@@ -32,8 +34,8 @@ func Initialize(database *gorm.DB) (err error) {
 	return
 }
 
-func GetAllProvinces() (provinces []Province, err error) {
-	if err = logger.Log(db.Find(&provinces).Error); err != nil {
+func GetAll() (provinces []Province, err error) {
+	if err = logger.Log(db.Preload("Counties").Find(&provinces).Error); err != nil {
 		return
 	}
 	return

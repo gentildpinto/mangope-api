@@ -1,0 +1,45 @@
+package county
+
+import (
+	"errors"
+	"time"
+
+	"github.com/gentildpinto/mangope-api/config/logger"
+	"gorm.io/gorm"
+)
+
+type (
+	Tabler interface {
+		TableName() string
+	}
+
+	County struct {
+		ID         uint      `gorm:"primaryKey"`
+		Name       string    `gorm:"type:varchar(50);not null"`
+		ProvinceID uint      `gorm:"not null"`
+		CreatedAt  time.Time `json:"-"`
+		UpdatedAt  time.Time `json:"-"`
+	}
+)
+
+func (County) TableName() string {
+	return "counties"
+}
+
+var db *gorm.DB
+
+func Initialize(database *gorm.DB) (err error) {
+	if database == nil {
+		return errors.New("invalid database")
+	}
+	db = database
+
+	return
+}
+
+func GetAll() (counties []County, err error) {
+	if err = logger.Log(db.Find(&counties).Error); err != nil {
+		return
+	}
+	return
+}

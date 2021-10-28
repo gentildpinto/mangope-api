@@ -13,7 +13,7 @@ var Province provinceController
 
 func (provinceController) Index() echo.HandlerFunc {
 	return func(c echo.Context) (err error) {
-		provinces, err := province.GetAllProvinces()
+		provinces, err := province.GetAll()
 
 		if err != nil {
 			return
