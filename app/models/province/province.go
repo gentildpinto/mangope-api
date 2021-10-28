@@ -14,7 +14,7 @@ type Province struct {
 	Name           string  `gorm:"type:varchar(50);not null"`
 	Foundation     string  `gorm:"type:varchar(50)"`
 	Capital        string  `gorm:"type:varchar(50)"`
-	Papulation     int     `gorm:"type:int"`
+	Papulation     uint    `gorm:"type:int"`
 	Area           float64 `gorm:"type:float"`
 	PhonePrefix    string  `gorm:"type:varchar(4)"`
 	GovernmentSite string  `gorm:"type:varchar(100)"`
@@ -36,6 +36,13 @@ func Initialize(database *gorm.DB) (err error) {
 
 func GetAll() (provinces []Province, err error) {
 	if err = logger.Log(db.Preload("Counties").Find(&provinces).Error); err != nil {
+		return
+	}
+	return
+}
+
+func GetByID(id int) (province Province, err error) {
+	if err = logger.Log(db.Preload("Counties").First(&province, id).Error); err != nil {
 		return
 	}
 	return

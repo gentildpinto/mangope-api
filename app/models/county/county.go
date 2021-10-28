@@ -43,3 +43,10 @@ func GetAll() (counties []County, err error) {
 	}
 	return
 }
+
+func GetByID(id int) (county County, err error) {
+	if err = logger.Log(db.First(&county, id).Error); err != nil {
+		return
+	}
+	return
+}

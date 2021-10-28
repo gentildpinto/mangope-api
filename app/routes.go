@@ -13,6 +13,12 @@ var (
 
 func initRoutes(e *echo.Echo) {
 	e.GET("/", welcome_controller.Index())
+
+	// provinces
 	e.GET("/provinces/all", province_controller.Index())
+	e.GET("/provinces/:id", province_controller.Show())
+
+	// counties
 	e.GET("/counties/all", county_controller.Index())
+	e.GET("/counties/:id", county_controller.Show())
 }
