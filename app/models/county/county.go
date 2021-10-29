@@ -14,9 +14,9 @@ type (
 	}
 
 	County struct {
-		ID         uint      `gorm:"primaryKey"`
-		Name       string    `gorm:"type:varchar(50);not null"`
-		ProvinceID uint      `gorm:"not null"`
+		ID         uint      `gorm:"primaryKey" json:"id"`
+		Name       string    `gorm:"type:varchar(50);not null" json:"name"`
+		ProvinceID uint      `gorm:"not null" json:"province_id"`
 		CreatedAt  time.Time `json:"-"`
 		UpdatedAt  time.Time `json:"-"`
 	}

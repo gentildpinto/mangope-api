@@ -10,17 +10,17 @@ import (
 )
 
 type Province struct {
-	ID             uint    `gorm:"primaryKey"`
-	Name           string  `gorm:"type:varchar(50);not null"`
-	Foundation     string  `gorm:"type:varchar(50)"`
-	Capital        string  `gorm:"type:varchar(50)"`
-	Papulation     uint    `gorm:"type:int"`
-	Area           float64 `gorm:"type:float"`
-	PhonePrefix    string  `gorm:"type:varchar(4)"`
-	GovernmentSite string  `gorm:"type:varchar(100)"`
-	Counties       []county.County
-	CreatedAt      time.Time `json:"-"`
-	UpdatedAt      time.Time `json:"-"`
+	ID             uint            `gorm:"primaryKey" json:"id"`
+	Name           string          `gorm:"type:varchar(50);not null" json:"name"`
+	Foundation     string          `gorm:"type:varchar(50)" json:"foundation"`
+	Capital        string          `gorm:"type:varchar(50)" json:"capital"`
+	Population     uint            `gorm:"type:int" json:"population"`
+	Area           float64         `gorm:"type:float" json:"area"`
+	PhonePrefix    string          `gorm:"type:varchar(4)" json:"phone_prefix"`
+	GovernmentSite string          `gorm:"type:varchar(100)" json:"government_site"`
+	Counties       []county.County `json:"counties"`
+	CreatedAt      time.Time       `json:"-"`
+	UpdatedAt      time.Time       `json:"-"`
 }
 
 var db *gorm.DB
