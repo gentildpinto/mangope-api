@@ -8,40 +8,36 @@ import (
 	echo "github.com/labstack/echo/v4"
 )
 
-type provinceController struct{}
+var Province = struct {
+	Index func() echo.HandlerFunc
+	Show  func() echo.HandlerFunc
+}{
+	Index: func() echo.HandlerFunc {
+		return func(c echo.Context) error {
+			provinces, err := province.GetAll()
 
-var Province provinceController
+			if err != nil {
+				return err
+			}
 
-func (provinceController) Index() echo.HandlerFunc {
-	return func(c echo.Context) (err error) {
-		provinces, err := province.GetAll()
-
-		if err != nil {
-			return
+			return c.JSON(http.StatusOK, provinces)
 		}
+	},
+	Show: func() echo.HandlerFunc {
+		return func(c echo.Context) (err error) {
+			id, err := strconv.Atoi(c.Param("id"))
 
-		return c.JSON(http.StatusOK, map[string]interface{}{
-			"provinces": provinces,
-		})
-	}
-}
+			if err != nil {
+				return
+			}
 
-func (provinceController) Show() echo.HandlerFunc {
-	return func(c echo.Context) (err error) {
-		id, err := strconv.Atoi(c.Param("id"))
+			province, err := province.GetByID(id)
 
-		if err != nil {
-			return
+			if err != nil {
+				return
+			}
+
+			return c.JSON(http.StatusOK, province)
 		}
-
-		province, err := province.GetByID(id)
-
-		if err != nil {
-			return
-		}
-
-		return c.JSON(http.StatusOK, map[string]interface{}{
-			"province": province,
-		})
-	}
+	},
 }

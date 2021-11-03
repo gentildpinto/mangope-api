@@ -5,43 +5,39 @@ import (
 	"strconv"
 
 	"github.com/gentildpinto/mangope-api/app/models/county"
-	echo "github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4"
 )
 
-type countyController struct{}
+var County = struct {
+	Index func() echo.HandlerFunc
+	Show  func() echo.HandlerFunc
+}{
+	Index: func() echo.HandlerFunc {
+		return func(c echo.Context) (err error) {
+			counties, err := county.GetAll()
 
-var County countyController
+			if err != nil {
+				return
+			}
 
-func (countyController) Index() echo.HandlerFunc {
-	return func(c echo.Context) (err error) {
-		counties, err := county.GetAll()
-
-		if err != nil {
-			return
+			return c.JSON(http.StatusOK, counties)
 		}
+	},
+	Show: func() echo.HandlerFunc {
+		return func(c echo.Context) (err error) {
+			id, err := strconv.Atoi(c.Param("id"))
 
-		return c.JSON(http.StatusOK, map[string]interface{}{
-			"counties": counties,
-		})
-	}
-}
+			if err != nil {
+				return
+			}
 
-func (countyController) Show() echo.HandlerFunc {
-	return func(c echo.Context) (err error) {
-		id, err := strconv.Atoi(c.Param("id"))
+			county, err := county.GetByID(id)
 
-		if err != nil {
-			return
+			if err != nil {
+				return
+			}
+
+			return c.JSON(http.StatusOK, county)
 		}
-
-		county, err := county.GetByID(id)
-
-		if err != nil {
-			return
-		}
-
-		return c.JSON(http.StatusOK, map[string]interface{}{
-			"county": county,
-		})
-	}
+	},
 }
